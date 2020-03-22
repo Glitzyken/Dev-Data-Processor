@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Cokali Dev-data Processor</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <img src="./Cokali logo white.png" alt="logo" class="logo" />
+        <h1>Cokali Dev-Data Processor</h1>
+      </header>
+
+      <!-- recipe data -->
+
+      <div class="recipes">
+        <label for="name">Name:</label>
+        <input
+          class="recipe block-view ui"
+          type="text"
+          id="name"
+          placeholder="name of recipe"
+        />
+        <label for="description">Description:</label>
+        <textarea
+          name="description"
+          id="description"
+          class="block-view ui"
+          cols="70"
+          rows="10"
+        ></textarea>
+        <label class="block-view" for="ingredient">Ingredients:</label>
+        <input
+          class="recipe ui"
+          type="text"
+          id="ingredient"
+          placeholder="ingredient"
+        />
+        <button id="plus-ingredient" class="plus-icon">➕</button>
+        <label class="block-view" for="method">Method:</label>
+        <textarea
+          name="method"
+          id="method"
+          class="block-view ui method"
+          cols="70"
+          rows="5"
+        ></textarea>
+        <button id="plus-method" class="plus-icon">➕</button>
+
+        <button class="block-view" id="create">Create Recipe 🌶</button>
+        <a class="download-link" id="downloadlink" style="display: none"
+          >Download recipe data ⬇</a
+        >
+      </div>
+
+      <!-- __________________________________ -->
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
