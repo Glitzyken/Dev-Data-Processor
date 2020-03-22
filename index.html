@@ -29,16 +29,16 @@
           id="description"
           class="block-view ui"
           cols="70"
-          rows="10"
+          rows="5"
         ></textarea>
-        <label class="block-view" for="ingredient">Ingredients:</label>
-        <input
-          class="recipe ui"
-          type="text"
-          id="ingredient"
-          placeholder="ingredient"
-        />
-        <button id="plus-ingredient" class="plus-icon">➕</button>
+        <label class="block-view">Ingredients:</label>
+        <ul id="ingredients">
+          <li id="ingredient">
+            <input class="recipe ui" type="text" placeholder="ingredient" />
+          </li>
+          <button id="plus-ingredient" class="plus-icon">➕</button>
+        </ul>
+
         <label class="block-view" for="method">Method:</label>
         <textarea
           name="method"

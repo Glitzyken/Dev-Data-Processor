@@ -1,49 +1,59 @@
-(function() {
-  var recipeFile = null,
-    makeRecipeFile = function(value) {
-      var data = new Blob([value], { type: "text/plain" });
+///////////////// DECLARE VARIABLES
 
-      // If we are replacing a previously generated file we need to
-      // manually revoke the object URL to avoid memory leaks.
-      if (recipeFile !== null) {
-        window.URL.revokeObjectURL(recipeFile);
-      }
+let recipeFile, makeRecipeFile;
 
-      recipeFile = window.URL.createObjectURL(data);
+///////////////// DOM ACCESS
 
-      return recipeFile;
-    };
+let createButton = document.getElementById("create"),
+  nameInput = document.getElementById("name"),
+  descInput = document.getElementById("description"),
+  plusIngredient = document.getElementById("plus-ingredient"),
+  plusMethod = document.getElementById("plus-method");
 
-  var createButton = document.getElementById("create"),
-    nameInput = document.getElementById("name"),
-    descInput = document.getElementById("description"),
-    plusIngredient = document.getElementById("plus-ingredient"),
-    plusMethod = document.getElementById("plus-method");
+///////////////// MAKE RECIPE DATA
 
-  plusIngredient.addEventListener("click", function() {
-    console.log("Button clicked");
+// Initialize recipeFile to the value of null, set recipeFile to Blob, then return newly created recipeFile.
 
-    var html =
-      '<input class="recipe ui" type="text" placeholder="ingredient" />';
+recipeFile = null;
+makeRecipeFile = value => {
+  let data = new Blob([value], { type: "text/plain" });
 
-    document
-      .getElementById("ingredient")
-      .insertAdjacentElement("afterend", html);
-  });
+  // If we are replacing a previously generated file we need to
+  // manually revoke the object URL to avoid memory leaks.
+  if (recipeFile !== null) {
+    window.URL.revokeObjectURL(recipeFile);
+  }
 
-  createButton.addEventListener(
-    "click",
-    function() {
-      var link = document.getElementById("downloadlink");
+  recipeFile = window.URL.createObjectURL(data);
 
-      // Normally, HTML anchor element for download button should have the attribute download set to "name.txt"
-      // However, attribute is dynamically set here to reflect the name of each recipe entered as a name input value
-      link.setAttribute("download", `${nameInput.value}.txt`);
-      link.href = makeRecipeFile(
-        `{\n"name": "${nameInput.value}", \n "description": "${descInput.value}"\n},`
-      );
-      link.style.display = "block";
-    },
-    false
-  );
-})();
+  return recipeFile;
+};
+
+plusIngredient.addEventListener("click", () => {
+  console.log("Button clicked");
+
+  let html = '<input class="recipe ui" type="text" placeholder="ingredient" />';
+
+  document
+    .getElementById("ingredients")
+    .insertAdjacentElement("beforeend", html);
+});
+
+///////////////// CREATE RECIPE BUTTON
+
+createButton.addEventListener(
+  "click",
+  () => {
+    let link = document.getElementById("downloadlink");
+
+    // Normally, HTML anchor element for download button should have the attribute download set to "name.txt"
+    // However, attribute is dynamically set here to reflect the name of each recipe entered as a name input value
+    link.setAttribute("download", `${nameInput.value}.txt`);
+    // Prepare and structure the final output for recipeFile. Then, create download link for it.
+    link.href = makeRecipeFile(
+      `{\n"name": "${nameInput.value}", \n "description": "${descInput.value}"\n},`
+    );
+    link.style.display = "block";
+  },
+  false
+);

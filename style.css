@@ -95,3 +95,8 @@ button:focus {
   margin-top: 1rem;
   color: #fff;
 }
+
+#ingredient {
+  list-style-type: none;
+  display: inline-block;
+}
