@@ -29,6 +29,14 @@ makeRecipeFile = value => {
   return recipeFile;
 };
 
+///////////////// COLLECT DATA FROM INGREDIENT AND METHOD INPUT VALUES
+
+// let ingredientArr = Object.keys(ingredientsInput).forEach(e => {
+//   return ingredientsInput.value;
+// });
+
+let ingredientArr = [...ingredientsInput].map(e => e.value);
+
 ///////////////// CREATE RECIPE BUTTON
 
 createButton.addEventListener(
@@ -36,22 +44,26 @@ createButton.addEventListener(
   () => {
     let link = document.getElementById("downloadlink");
 
-    // Normally, HTML anchor element for download button should have the attribute download set to "name.txt"
-    // However, attribute is dynamically set here to reflect the name of each recipe entered as a name input value
-    link.setAttribute("download", `${nameInput.value}.txt`);
-
     // Format and structure the final output value of recipeFile then, create download link for it.
     name = nameInput.value.toLowerCase();
     description = descInput.value.toLowerCase();
 
+    // Normally, HTML anchor element for download button should have the attribute download set to "name.txt"
+    // However, attribute is dynamically set here to reflect the name of each recipe entered as a name input value
+    link.setAttribute("download", `${nameInput.value}.txt`);
+
     link.href = makeRecipeFile(
-      `{\n"name": "${name}", \n "description": "${description}", \n "note": "${noteInput.value}" \n },`
+      `{\n"name": "${name}", \n "description": "${description}", \n "ingredients": ["${[
+        ingredientArr
+      ]}"], \n "note": "${noteInput.value}" \n },`
     );
     link.style.display = "block";
   },
   false
 );
 
+console.log(typeof ingredientArr[0]);
+console.log(ingredientArr);
 // console.log(typeof name);
 
 //TODO:
@@ -64,4 +76,5 @@ createButton.addEventListener(
 // lowercase
 
 /////// FINISHING POINT
+// reload on download button click
 // Create v1.0
