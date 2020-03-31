@@ -115,7 +115,3 @@ const reload = () => {
 };
 
 link.addEventListener("click", reload);
-
-/////// FINISHING POINT
-// reload on download button click
-// Create v1.0
