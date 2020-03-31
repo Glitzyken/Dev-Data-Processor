@@ -65,8 +65,8 @@ createButton.addEventListener(
     let link = document.getElementById("downloadlink");
 
     // Format and structure the final output value of recipeFile then, create download link for it.
-    name = nameInput.value.toLowerCase().replace(/(\r\n|\n|\r)/gm, "");
-    description = descInput.value.toLowerCase().replace(/(\r\n|\n|\r)/gm, "");
+    name = nameInput.value.toLowerCase().replace(/(\r\n|\n|\r)/gm, " ");
+    description = descInput.value.toLowerCase().replace(/(\r\n|\n|\r)/gm, " ");
     ingredient1 = ing1.value.toLowerCase().replace(".", "");
     ingredient2 = ing2.value.toLowerCase().replace(".", "");
     ingredient3 = ing3.value.toLowerCase().replace(".", "");
@@ -85,17 +85,17 @@ createButton.addEventListener(
     ingredient16 = ing16.value.toLowerCase().replace(".", "");
     ingredient17 = ing17.value.toLowerCase().replace(".", "");
     ingredient18 = ing18.value.toLowerCase().replace(".", "");
-    method1 = met1.value.toLowerCase().replace(/(\r\n|\n|\r)/gm, "");
-    method2 = met2.value.toLowerCase().replace(/(\r\n|\n|\r)/gm, "");
-    method3 = met3.value.toLowerCase().replace(/(\r\n|\n|\r)/gm, "");
-    method4 = met4.value.toLowerCase().replace(/(\r\n|\n|\r)/gm, "");
-    method5 = met5.value.toLowerCase().replace(/(\r\n|\n|\r)/gm, "");
-    method6 = met6.value.toLowerCase().replace(/(\r\n|\n|\r)/gm, "");
-    method7 = met7.value.toLowerCase().replace(/(\r\n|\n|\r)/gm, "");
-    method8 = met8.value.toLowerCase().replace(/(\r\n|\n|\r)/gm, "");
-    method9 = met9.value.toLowerCase().replace(/(\r\n|\n|\r)/gm, "");
-    method10 = met10.value.toLowerCase().replace(/(\r\n|\n|\r)/gm, "");
-    note = noteInput.value.toLowerCase().replace(/(\r\n|\n|\r)/gm, "");
+    method1 = met1.value.toLowerCase().replace(/(\r\n|\n|\r)/gm, " ");
+    method2 = met2.value.toLowerCase().replace(/(\r\n|\n|\r)/gm, " ");
+    method3 = met3.value.toLowerCase().replace(/(\r\n|\n|\r)/gm, " ");
+    method4 = met4.value.toLowerCase().replace(/(\r\n|\n|\r)/gm, " ");
+    method5 = met5.value.toLowerCase().replace(/(\r\n|\n|\r)/gm, " ");
+    method6 = met6.value.toLowerCase().replace(/(\r\n|\n|\r)/gm, " ");
+    method7 = met7.value.toLowerCase().replace(/(\r\n|\n|\r)/gm, " ");
+    method8 = met8.value.toLowerCase().replace(/(\r\n|\n|\r)/gm, " ");
+    method9 = met9.value.toLowerCase().replace(/(\r\n|\n|\r)/gm, " ");
+    method10 = met10.value.toLowerCase().replace(/(\r\n|\n|\r)/gm, " ");
+    note = noteInput.value.toLowerCase().replace(/(\r\n|\n|\r)/gm, " ");
     country = cntryInput.value.toLowerCase();
 
     // Normally, HTML anchor element for download button should have the attribute download set to "name.txt"
